@@ -1,0 +1,32 @@
+.contact__item_wrapper {
+  border: 1px solid var(--dark-gray);
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+}
+.contact__item {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.contact__button {
+  border: 1px solid var(--dark-gray);
+  border-radius: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border: 1px solid --dark-gray;
+  background-color: var(--gray);
+  transition: var(--transition);
+  &:hover {
+    box-shadow: 0px 0px 10px var(--accent-red);
+    border: 1px solid var(--accent-red);
+  }
+}

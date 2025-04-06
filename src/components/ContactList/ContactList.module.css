@@ -1,0 +1,15 @@
+.contact__list_wrapper {
+  border: 1px solid var(--dark-gray);
+  border-radius: 5px;
+  padding: 8px;
+  width: 300px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
