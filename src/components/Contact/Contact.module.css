@@ -7,6 +7,10 @@
   align-items: center;
   flex-direction: row;
   gap: 16px;
+  transition: var(--transition);
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(62, 62, 62, 0.6);
+  }
 }
 .contact__item {
   display: flex;
