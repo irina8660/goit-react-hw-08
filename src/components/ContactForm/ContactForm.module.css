@@ -18,6 +18,7 @@
   margin-bottom: 24px;
   width: 250px;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid var(--dark-gray);
   background-color: transparent;
   transition: var(--transition);

@@ -2,6 +2,7 @@
   --font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  height: 100vh;
 
   color: rgba(0, 0, 0, 0.87);
 
@@ -44,6 +45,8 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  height: 100vh;
+  background-color: var(--light-gray);
 }
 
 h1 {
