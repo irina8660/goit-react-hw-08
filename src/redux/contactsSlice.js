@@ -42,7 +42,7 @@ export const contactsSlice = createSlice({
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items.push(action.payload);
       })
       .addCase(addContact.rejected, (state) => {
         state.loading = false;
