@@ -10,7 +10,6 @@
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Скидання стилів браузера */
 *,
 *::before,
 *::after {
@@ -46,7 +45,6 @@ input:focus {
   box-shadow: none;
 }
 
-/* Твої стилі */
 body {
   font-family: var(--font-family);
   font-size: 16px;
@@ -59,7 +57,7 @@ body {
   min-width: 320px;
   height: 100vh;
   background-color: var(--light-gray);
-  background-image: url("../../../public/bgc-img.jpg");
+  background-image: url("/bgc-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
