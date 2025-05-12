@@ -1,0 +1,116 @@
+.form_wrapper {
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.input_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--dark-gray);
+  gap: 8px;
+  transition: var(--transition);
+  &:hover,
+  &:focus,
+  &:active {
+    border-bottom: 1px solid var(--accent-green);
+  }
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1.5;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  letter-spacing: inherit;
+  border: none;
+  transition: var(--transition);
+  overflow: hidden;
+  &::placeholder {
+    font-weight: 200;
+    letter-spacing: 1.5px;
+    text-transform: none;
+    font-style: italic;
+    color: rgba(54, 54, 54, 0.5);
+  }
+}
+
+.error {
+  padding: 0;
+  color: var(--accent-red);
+  font-size: 10px;
+  margin-top: -16px;
+  height: 16px;
+  width: 100%;
+  padding-left: 28px;
+  white-space: nowrap;
+}
+
+.error_message {
+  text-align: center;
+}
+
+.button {
+  padding-inline: 24px;
+  border-radius: 24px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1.5;
+  align-self: center;
+  border: 1px solid var(--accent-green);
+  background-color: var(--accent-green);
+  color: white;
+  transition: var(--transition);
+  &:hover,
+  &:focus,
+  &:active {
+    transform: scale(1.05);
+  }
+}
+
+.login_link_wrapper {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.link {
+  text-decoration: underline;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}

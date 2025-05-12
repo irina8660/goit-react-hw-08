@@ -1,16 +1,20 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps";
-import { selectNameFilter } from "./filtersSlice";
-
-const selectContacts = (state) => state.contacts.items;
-const selectIsLoading = (state) => state.contacts.loading;
-const selectIsError = (state) => state.contacts.error;
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  updateContact,
+} from "./operations";
+import { selectContacts } from "./selectors";
+import { logOut } from "../auth/operations";
+import { selectFilter } from "../filters/selectors";
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
+  [selectContacts, selectFilter],
   (contacts, filter) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+    return contacts.filter(
+      ({ name, number }) =>
+        name.toLowerCase().includes(filter) || number.includes(filter)
     );
   }
 );
@@ -48,11 +52,34 @@ export const contactsSlice = createSlice({
         state.loading = false;
         state.error = true;
       })
+      .addCase(deleteContact.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.loading = false;
         state.items = state.items.filter(
           (item) => item.id !== action.payload.id
         );
+      })
+      .addCase(deleteContact.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      })
+      .addCase(updateContact.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = state.items.map((contact) =>
+          contact.id === action.payload.id ? action.payload : contact
+        );
+      })
+      .addCase(updateContact.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
       });
   },
 });

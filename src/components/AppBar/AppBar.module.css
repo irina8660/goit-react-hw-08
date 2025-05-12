@@ -1,0 +1,19 @@
+.header {
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(62, 62, 62, 0.6);
+  transition: var(--transition);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 768px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

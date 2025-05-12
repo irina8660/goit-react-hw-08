@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-inline: 16px;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.b {
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-gray);
+  background-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+    outline: none;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

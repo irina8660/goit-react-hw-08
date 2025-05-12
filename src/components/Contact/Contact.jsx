@@ -1,34 +1,65 @@
 import s from "./Contact.module.css";
-import { FaPhone } from "react-icons/fa6";
-import { IoPerson } from "react-icons/io5";
-import { MdDeleteOutline } from "react-icons/md";
+import { CiEdit, CiPhone, CiTrash, CiUser } from "react-icons/ci";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
+import { useState } from "react";
+import { deleteContact, updateContact } from "../../redux/contacts/operations";
+import ConfirmModal from "../Modals/ConfirmModal/ConfirmModal";
+import UpdateModal from "../Modals/UpdateModal/UpdateModal";
 
 export default function Contact({ contact: { id, name, number } }) {
+  console.log({ id, name, number });
   const dispatch = useDispatch();
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+
   const handleDelete = () => {
     dispatch(deleteContact(id));
+    setIsConfirmModalOpen(false);
   };
+
+  const handleUpdate = () => {
+    dispatch(updateContact(id));
+    setIsUpdateModalOpen(false);
+  };
+
   return (
-    <div className={s.contact__item_wrapper}>
-      <ul className={s.contact__item}>
-        <li>
-          <IoPerson /> {name}
+    <div className={s.wrapper}>
+      <ul className={s.item}>
+        <li className={s.field}>
+          <CiUser className={s.icon} /> {name}
         </li>
-        <li>
-          <FaPhone /> {number}
+        <li className={s.field}>
+          <CiPhone className={s.icon} /> {number}
         </li>
       </ul>
-      <button
-        className={s.contact__button}
-        onClick={() => {
-          handleDelete(id);
-        }}
-        type="button"
-      >
-        <MdDeleteOutline />
-      </button>
+      <div className={s.button_wrapper}>
+        <button
+          className={s.button_edit}
+          type="button"
+          onClick={() => setIsUpdateModalOpen(true)}
+        >
+          <CiEdit className={s.icon} />
+        </button>
+        <button
+          className={s.button_delete}
+          onClick={() => setIsConfirmModalOpen(true)}
+          type="button"
+        >
+          <CiTrash className={s.icon} />
+        </button>
+      </div>
+
+      <ConfirmModal
+        isOpen={isConfirmModalOpen}
+        onClose={() => setIsConfirmModalOpen(false)}
+        onConfirm={handleDelete}
+      />
+      <UpdateModal
+        isOpen={isUpdateModalOpen}
+        onClose={() => setIsUpdateModalOpen(false)}
+        onConfirm={handleUpdate}
+        contact={{ id, name, number }}
+      />
     </div>
   );
 }

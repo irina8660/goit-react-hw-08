@@ -4,7 +4,7 @@ import s from "./Loader.module.css";
 const Loader = () => {
   return (
     <div className={s.loader}>
-      <ClipLoader color="#107810" size={48} />
+      <ClipLoader color="#1b831bbf" size={48} />
     </div>
   );
 };

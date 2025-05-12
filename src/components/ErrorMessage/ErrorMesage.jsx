@@ -1,7 +1,7 @@
 import s from "./ErrorMessage.module.css";
 
 const ErrorMessage = () => {
-  return <p className={s.error}>Oops... Please try again:)</p>;
+  return alert("Oops...");
 };
 
 export default ErrorMessage;
